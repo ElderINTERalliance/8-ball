@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Magic 8-Ball</title>
+		<meta name="description" content="A magical 8-ball that will (not) solve your problems" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="" />
+	</head>
+	<body>
+		<div id="eight-ball">
+			<div id="output"></div>
+
+			<button onclick="run()">Click Me!</button>
+		</div>
+
+		<script> // Javascript:
+			function chooseResponse() {
+				// Array of responses:
+				const responses = [
+					"Give up.",
+					"Submit to the government",
+					"Go watch Shrek 2",
+					"The imposter is sus.",
+				];
+
+				// Random Number to pick:
+				const choice = Math.floor(Math.random() * responses.length);
+
+				return responses[choice];
+			}
+
+			function run() {
+				document.getElementById(
+					"output"
+				).textContent = chooseResponse();
+			}
+		</script>
+	</body>
+</html>
