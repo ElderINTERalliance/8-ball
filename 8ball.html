@@ -4,18 +4,26 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Magic 8-Ball</title>
-		<meta name="description" content="A magical 8-ball that will (not) solve your problems" />
+		<meta
+			name="description"
+			content="A magical 8-ball that will (not) solve your problems"
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="" />
 	</head>
 	<body>
 		<div id="eight-ball">
+			<form>
+				<label for="question-input">What is your question?</label>
+				<input type="text" id="question" name="question-input" />
+			</form>
 			<div id="output"></div>
 
 			<button onclick="run()">Click Me!</button>
 		</div>
 
-		<script> // Javascript:
+		<script>
+			// Javascript:
 			function chooseResponse() {
 				// Array of responses:
 				const responses = [
@@ -35,7 +43,18 @@
 				document.getElementById(
 					"output"
 				).textContent = chooseResponse();
+
+				document.getElementById("question").value = "";
 			}
+
+			document
+				.getElementById("question")
+				.addEventListener("keypress", (evt) => {
+					if (evt.key === "Enter") {
+						evt.preventDefault();
+						run();
+					}
+				});
 		</script>
 	</body>
 </html>
